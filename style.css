@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+/* Reset */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* Style */
+html {
+    font-family: 'Roboto', sans-serif;
+    overflow-y: scroll;
+}
+
+html, body {
+    height: 100%;
+}
+
+h1 {
+    font-size: 48px;
+    line-height: 72px;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 64px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 48px;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+button {
+    border: 2px solid #444444;
+    color: #444444;
+    background: none;
+    font-family: 'Roboto', sans-serif;
+    height: 48px;
+    line-height: 45px;
+    padding: 0 16px;
+    margin: 8px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: 0;
+    border-radius: 3px;
+}
+
+button i {
+    line-height: 44px !important;
+    float: left;
+    margin: 0 4px 0 -4px;
+}
+
+button:hover,
+button.primary_button {
+    background: #444444;
+    color: #ffffff;
+}
+
+button.primary_button:hover {
+    background: #000000;
+}
+
+input,
+textarea {
+    border: 2px solid #dddddd;
+    background: #f6f6f6;
+    color: #444444;
+    font-family: 'Roboto', sans-serif;
+    height: 44px;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: 0;
+    margin: 8px;
+    border-radius: 3px;
+}
+
+textarea {
+    height: auto;
+    line-height: 24px;
+    padding: 10px 16px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #444444;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    text-align: left;
+    padding: 0 16px;
+    line-height: 64px;
+}
+
+table td:first-child {
+    width: 100%;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+table tr td {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+table tr:nth-child(even) {
+    background: #fbfbfb;
+}
+
+table tr:hover td {
+    background: #f6f6f6;
+}
+
+.models {
+    width: 320px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    bottom: 0;
+    transition: left .5s;
+}
+
+.models button {
+    margin-left: 16px;
+    margin-bottom: 32px;
+}
+
+.models ul li {
+    line-height: 64px;
+    padding: 0 32px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.models ul li button {
+    float: right;
+    margin: 16px -16px 0 0;
+    height: 32px;
+    padding: 0;
+    border-color: transparent;
+    display: none;
+}
+
+.models ul li button i {
+    line-height: 28px !important;
+    margin: 0 6px;
+    font-size: 16px !important;
+}
+
+.models ul li.selected {
+    font-weight: 700;
+    border-left: 3px solid #444444;
+    padding-left: 29px;
+    background: #fbfbfb;
+}
+
+.models ul li.selected button {
+    display: block;
+}
+
+.models ul li:hover {
+    background: #f6f6f6;
+}
+
+.objects {
+    position: absolute;
+    top: 96px;
+    left: 336px;
+    right: 16px;
+}
+
+.model_details {
+    width: 320px;
+    position: absolute;
+    top: 8px;
+    right: 0;
+    bottom: 0;
+}
+
+.model_details h4:first-child {
+    margin-top: 24px;
+}
+
+.model_details h4 {
+    margin: 16px 16px 0 24px;
+}
+
+.model_details p {
+    line-height: 24px;
+    margin: 0 16px 0 24px;
+}
+
+.model_details p small {
+    font-size: 12px;
+}
+
+.model_details .name {
+    width: 260px;
+}
+
+.fields {
+    position: absolute;
+    top: 96px;
+    left: 336px;
+    right: 336px;
+    max-width: 640px;
+}
+
+.fields table tr td {
+    padding-bottom: 16px;
+    background: none;
+    position: relative;
+}
+
+.fields table tr td:first-child {
+    font-weight: 700;
+}
+
+.fields table tr {
+    background: none;
+}
+
+.fields table tr td:after {
+    content: '';
+    position: absolute;
+    background: #fbfbfb;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    z-index: -1;
+}
+
+.fields table tr td:first-child:after {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.fields table tr td:last-child:after {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.fields table tbody:not(.sortable-dragging) tr:hover td:after {
+    background: #f6f6f6;
+}
+
+.fields .sortable-ghost td:after {
+    background: #f6f6f6;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+}
+
+.fields .sortable-ghost td:first-child:after {
+    border-left: 2px solid #eee;
+}
+
+.fields .sortable-ghost td:last-child:after {
+    border-right: 2px solid #eee;
+}
+
+.fields .drag_handle {
+    min-width: 48px;
+    position: relative;
+}
+
+.fields .drag_handle i {
+    line-height: 64px;
+    width: 64px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    cursor: move;
+}
+
+.data {
+    position: absolute;
+    top: 96px;
+    left: 336px;
+    right: 328px;
+    max-width: 640px;
+}
+
+.data h3 {
+    margin-left: 16px;
+}
+
+.data input,
+.data textarea {
+    width: 100%;
+    box-sizing: border-box;
+    height: 48px;
+    resize: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.data textarea {
+    height: auto;
+}
+
+.actions {
+    background: #fbfbfb;
+    padding: 8px 8px 8px 328px;
+    overflow: hidden;
+    height: 64px;
+}
+
+.actions button,
+.actions input {
+    float: right;
+}
+
+.actions .back,
+.actions .show_models {
+    border-color: transparent;
+    padding-right: 8px;
+}
+
+.actions .back {
+    position: absolute;
+    left: 8px;
+}
+
+.actions .show_models {
+    display: none;
+}
+
+.actions .show_models,
+.actions .create_object,
+.actions .add_field {
+    float: left;
+}
+
+.actions .search {
+    width: 240px;
+    padding-right: 60px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.actions .search_button {
+    padding-right: 8px;
+    margin-left: -10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    position: relative;
+    z-index: 1;
+}
+
+dialog {
+    border: 0;
+    background: #fbfbfb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2), 0 5px 32px rgba(0, 0, 0, .2);
+    border-radius: 3px;
+}
+
+dialog .title {
+    line-height: 32px;
+    float: left;
+    margin-top: 4px;
+    margin-left: 8px;
+}
+
+dialog .close {
+    height: 32px;
+    width: 32px;
+    padding: 0;
+    border-color: transparent;
+    float: right;
+}
+
+dialog .close i {
+    line-height: 28px !important;
+    width: 28px;
+    text-align: center;
+    margin: 0;
+}
+
+dialog .types.types {
+    width: 632px;
+    float: left;
+}
+
+dialog .types button {
+    width: 300px;
+    height: 80px;
+    text-align: left;
+    float: left;
+}
+
+dialog .types button h6,
+dialog .types button p {
+    line-height: 24px;
+}
+
+dialog .types button h6 {
+    margin-top: 14px;
+}
+
+dialog .types button p {
+    text-transform: initial;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+dialog .types button i {
+    width: 76px;
+    line-height: 76px !important;
+    text-align: center;
+    float: left;
+    margin-left: -16px;
+    margin-right: 0;
+}
+
+@media screen and (max-width: 1320px) {
+    .actions .search,
+    .actions .search_button {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .models:not(.open) {
+        left: -330px;
+        background: #fff;
+    }
+
+    .objects {
+        left: 16px;
+    }
+
+    .actions {
+        padding-left: 8px;
+    }
+
+    .actions .show_models {
+        display: block;
+    }
+}
