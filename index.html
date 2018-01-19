@@ -18,11 +18,23 @@
 <aside class="models">
     <button class="create_model"><i class="material-icons">create</i>Create Model</button>
     <ul>
-        <li>Page content<button><i class="material-icons">edit</i></button></li>
-        <li>Frontpage item<button><i class="material-icons">edit</i></button></li>
-        <li class="selected">Frequently asked question<button><i class="material-icons">edit</i></button></li>
-        <li>Service rubric<button><i class="material-icons">edit</i></button></li>
-        <li>Subscription<button><i class="material-icons">edit</i></button></li>
+        <!--
+        <li>Page content
+            <button><i class="material-icons">edit</i></button>
+        </li>
+        <li>Frontpage item
+            <button><i class="material-icons">edit</i></button>
+        </li>
+        <li class="selected">Frequently asked question
+            <button><i class="material-icons">edit</i></button>
+        </li>
+        <li>Service rubric
+            <button><i class="material-icons">edit</i></button>
+        </li>
+        <li>Subscription
+            <button><i class="material-icons">edit</i></button>
+        </li>
+        -->
     </ul>
 </aside>
 <section class="objects">
@@ -132,5 +144,62 @@
     </table>
 </section>
 <script src="bundle.js"></script>
+<script>
+    const objects = document.querySelector('.objects tbody');
+    const models = document.querySelector('.models ul');
+    const createObjectButton = document.querySelector('.create_object');
+    const createModelButton = document.querySelector('.create_model');
+
+    let objs = [];
+    let currentModelId;
+
+    createObjectButton.addEventListener('click', e => window.location.href = `object#${currentModelId}`);
+    createModelButton.addEventListener('click', e => window.location.href = 'model');
+    objects.addEventListener('click', e => {
+        if (e.target && e.target.matches('td')) {
+            window.location.href = `object#${currentModelId}#${e.target.parentNode.dataset.id}`;
+        }
+    });
+    models.addEventListener('click', e => {
+        if (e.target && e.target.matches('li')) {
+            let selected = models.querySelector('.selected');
+            if (selected) selected.classList.remove('selected');
+            e.target.classList.add('selected');
+            currentModelId = e.target.dataset.id;
+            let name = e.target.dataset.name;
+            let html = '';
+            objs.reverse().forEach(obj => {
+                if (obj.model.id === currentModelId) {
+                    html += `<tr data-id="${obj.id}">
+                             <td>${obj.id}</td>
+                             <td>20/12/2017</td>
+                             <td>20/12/2017</td>
+                         </tr>`;
+                }
+            });
+            objects.innerHTML = html;
+            createObjectButton.innerHTML = `<i class="material-icons">add</i>Add ${name}`;
+        }
+    });
+
+    (async () => {
+        try {
+            objs = await localStore.read();
+        } catch (e) {
+        }
+        try {
+            (await localStore.models.read()).forEach(model => {
+                let el = document.createElement("ul");
+                el.innerHTML = `<li data-id="${model.id}" data-name="${model.name}">
+                                ${model.name}
+                                <button><i class="material-icons">edit</i></button>
+                            </li>`;
+                models.appendChild(el.children[0]);
+            });
+            models.children[0].click();
+        } catch (e) {
+        }
+    })();
+</script>
 </body>
 </html>
